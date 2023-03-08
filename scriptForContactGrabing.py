@@ -26,7 +26,21 @@ for contact in contact_list:
         
         address = contact.find('address', {'class': 'c-address'}).text.strip().replace('\n', ' ').strip()
 
-        people.append({"fullname":name,"title":title,"email":email_address, "address":address})
+        # branchPhn = contact.find('span', {'class':'c-phone-number-span'}).text.strip().replace('\n', ' ').strip()
+        
+        phoneNumberList = contact.find_all("div", class_="Teaser-phone")
+        phoneNums = []
+        if phoneNumberList:
+            for phone in phoneNumberList:
+                x = phone.find('span', {'class':'c-phone-number-span'}).text.strip().replace('\n', ' ').strip()
+                phoneNums.append(x)
+        else:
+            phoneNums = None
+
+        # people.append({"fullname":name,"title":title,"email":email_address, "address":address,"branchPhn":phoneNums[0], "directPhn":phoneNums[1]})
+
+        people.append({"fullname":name,"title":title,"email":email_address, "address":address,"branchPhn":phoneNums[0] if phoneNums else None, "directPhn":phoneNums[1] if phoneNums and len(phoneNums) > 1 else None})
+
     
     except AttributeError:
         print("Error: Skipping current contact due to missing element")
@@ -35,7 +49,7 @@ for contact in contact_list:
 # print(people)
 with open(f'{saveCSVas}.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["Full Name", "Title", "Email", "Address"])
+    writer.writerow(["Full Name", "Title", "Email", "Address", "branch Phone", "Direct Phone"])
     for person in people:
-        writer.writerow([person["fullname"], person["title"], person["email"], person["address"]])
+        writer.writerow([person["fullname"], person["title"], person["email"], person["address"], person["directPhn"], person["branchPhn"]])
 
