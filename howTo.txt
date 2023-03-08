@@ -1,0 +1,9 @@
+step 1:
+
+- go to website using this link: 
+
+https://advisor.morganstanley.com/search?q=&r=15&fbclid=IwAR3SIN4DlP1sXcJApnT6GgVEh_nN7lINWuMmVfnmGhJY4R59X_1KySBbhcg&randomizationToken=QBllteVDaMYFJAQSqSkY7d7TAnJ3S6D1hbtT2rL6YR3lLpb5_rzn7cvo4PZubGk0nOvgPRdjePeiZkN1WaWkV2QfzEwn0xlceox0sc2w48btqkRE3bCPrQXSqsbxS-4ItrcgrzmLG7CzFAtAKxWu-A%3D%3D&randomizationToken=ORbRESPO8S9TLfSmMO1s6rho1DsoZafhwM17SjXgRCo_Yh3EWqJjDetS-jlquU_-z6bDGUBeURMtRFpa_yTt8A9dopuWFYFtU8UiXnYDrod-rXgBCGuC4BAjauUX9vF5IZh3dpQhFIMG70-S44NY1Q%3D%3D&offset=400
+
+- edit the end offset number accordingly like if you start from 10 then clicking on see more will increase by 10. so offset 400 means 10-400 data. now give 410 and continue.
+
+- copy the full <ol></ol> tag and save it in the folder. then run the script. 
